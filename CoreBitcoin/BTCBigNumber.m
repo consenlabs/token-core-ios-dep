@@ -56,7 +56,7 @@
 
 - (id) init {
     if (self = [super init]) {
-        BN_init(&_bignum);
+        _bignum = BN_new();
     }
     return self;
 }
@@ -301,7 +301,7 @@
     };
     
     BN_CTX* pctx = NULL;
-    BIGNUM bnBase; BN_init(&bnBase); BN_set_word(&bnBase, (BN_ULONG)base);
+    BIGNUM bnBase = BN_new(); BN_set_word(&bnBase, (BN_ULONG)base);
     
     while (1) {
         unsigned char c = (unsigned char)*psz++;
@@ -346,14 +346,14 @@
     NSMutableData* resultData = nil;
     
     BN_CTX* pctx = BN_CTX_new();
-    BIGNUM bnBase; BN_init(&bnBase); BN_set_word(&bnBase, (BN_ULONG)base);
-    BIGNUM bn0;    BN_init(&bn0);    BN_zero(&bn0);
-    BIGNUM bn;     BN_init(&bn);     BN_copy(&bn, &_bignum);
+    BIGNUM bnBase = BN_new(); BN_set_word(&bnBase, (BN_ULONG)base);
+    BIGNUM bn0 = BN_new();    BN_zero(&bn0);
+    BIGNUM bn = BN_new();     BN_copy(&bn, &_bignum);
     
     BN_set_negative(&bn, false);
     
-    BIGNUM dv;  BN_init(&dv);
-    BIGNUM rem; BN_init(&rem);
+    BIGNUM dv = BN_new();
+    BIGNUM rem = BN_new();
     
     if (BN_cmp(&bn, &bn0) == 0) {
         resultData = [NSMutableData dataWithBytes:"0" length:1];
@@ -417,8 +417,7 @@
     if (size <= 3) {
         result = (uint32_t)(BN_get_word(&_bignum) << 8*(3-size));
     } else {
-        BIGNUM bn;
-        BN_init(&bn);
+        BIGNUM bn  = BN_new();
         BN_rshift(&bn, &_bignum, 8*(size-3));
         result = (uint32_t)BN_get_word(&bn);
     }

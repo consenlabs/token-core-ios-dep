@@ -185,8 +185,8 @@ static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const 
 
     BTCBigNumber* signatureBN = [[[privkeyBN multiply:Kx mod:n] add:hashBN mod:n] multiply:[k inverseMod:n] mod:n];
 
-    BIGNUM r; BN_init(&r); BN_copy(&r, Kx.BIGNUM);
-    BIGNUM s; BN_init(&s); BN_copy(&s, signatureBN.BIGNUM);
+    BIGNUM r = BN_new(); BN_copy(&r, Kx.BIGNUM);
+    BIGNUM s = BN_new(); BN_copy(&s, signatureBN.BIGNUM);
 
     [privkeyBN clear];
     [k clear];
@@ -290,8 +290,8 @@ static int     ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const 
     
     BTCBigNumber* signatureBN = [[[privkeyBN multiply:Kx mod:n] add:hashBN mod:n] multiply:[k inverseMod:n] mod:n];
     
-    BN_init(r); BN_copy(r, Kx.BIGNUM);
-    BN_init(s); BN_copy(s, signatureBN.BIGNUM);
+    r = BN_new(); BN_copy(r, Kx.BIGNUM);
+    s = BN_new(); BN_copy(s, signatureBN.BIGNUM);
     
     sig->r = r;
     sig->s = s;

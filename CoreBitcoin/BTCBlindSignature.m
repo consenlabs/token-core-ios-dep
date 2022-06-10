@@ -393,8 +393,8 @@
     ECDSA_SIG sigValue;
     ECDSA_SIG *sig = &sigValue;
     
-    BIGNUM r; BN_init(&r); BN_copy(&r, Kx.BIGNUM);
-    BIGNUM s; BN_init(&s); BN_copy(&s, unblindedSignature.BIGNUM);
+    BIGNUM r = BN_new(); BN_copy(&r, Kx.BIGNUM);
+    BIGNUM s = BN_new(); BN_copy(&s, unblindedSignature.BIGNUM);
     
     sig->r = &r;
     sig->s = &s;

@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.source        = { :git => "git@github.com:consenlabs/token-core-ios-dep.git", :tag => "#{s.version}" }
   s.source_files  = "CoreBitcoin/*.{h,m,c}", "libscrypt/*.{h,m,c}"
+  s.public_header_files = "CoreBitcoin/*.h", "libscrypt/*.h"
   s.exclude_files = ['*+Tests.{h,m}']
   s.requires_arc = true
   s.framework    = 'Foundation'

@@ -23,9 +23,9 @@ NSMutableData* BTCDataFromBase58CString(const char* cstring) {
     NSMutableData* result = nil;
     
     BN_CTX* pctx = BN_CTX_new();
-    __block BIGNUM bn58;   BN_init(&bn58);   BN_set_word(&bn58, 58);
-    __block BIGNUM bn;     BN_init(&bn);     BN_zero(&bn);
-    __block BIGNUM bnChar; BN_init(&bnChar);
+    __block BIGNUM bn58 = BN_new();   BN_set_word(&bn58, 58);
+    __block BIGNUM bn = BN_new();     BN_zero(&bn);
+    __block BIGNUM bnChar = BN_new();
     
     void(^finish)() = ^{
         if (pctx) BN_CTX_free(pctx);
@@ -128,11 +128,11 @@ char* BTCBase58CStringWithData(NSData* data) {
     if (!data) return NULL;
     
     BN_CTX* pctx = BN_CTX_new();
-    __block BIGNUM bn58; BN_init(&bn58); BN_set_word(&bn58, 58);
-    __block BIGNUM bn0;  BN_init(&bn0);  BN_zero(&bn0);
-    __block BIGNUM bn; BN_init(&bn); BN_zero(&bn);
-    __block BIGNUM dv; BN_init(&dv); BN_zero(&dv);
-    __block BIGNUM rem; BN_init(&rem); BN_zero(&rem);
+    __block BIGNUM bn58 = BN_new(); BN_set_word(&bn58, 58);
+    __block BIGNUM bn0 = BN_new();  BN_zero(&bn0);
+    __block BIGNUM bn = BN_new(); BN_zero(&bn);
+    __block BIGNUM dv = BN_new(); BN_zero(&dv);
+    __block BIGNUM rem = BN_new(); BN_zero(&rem);
     
     void(^finish)() = ^{
         if (pctx) BN_CTX_free(pctx);
