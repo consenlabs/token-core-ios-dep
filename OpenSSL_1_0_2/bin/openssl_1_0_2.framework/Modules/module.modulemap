@@ -1,0 +1,6 @@
+framework module openssl_1_0_2 {
+  umbrella header "openssl_1_0_2.h"
+
+  export *
+  module * { export * }
+}

@@ -2,8 +2,8 @@
 
 #import <Foundation/Foundation.h>
 #import "BTCSignatureHashType.h"
-#include <openssl/ec.h>            //@XM
-#include <openssl/ecdsa.h>
+#include <openssl_1_0_2/ec.h>            //@XM
+#include <openssl_1_0_2/ecdsa.h>
 
 @class BTCCurvePoint;
 @class BTCPublicKeyAddress;

@@ -8,10 +8,10 @@
 #import "BTCKeychain.h"
 #import "BTCCurvePoint.h"
 #import "BTCBigNumber.h"
-#include <openssl/ec.h>
-#include <openssl/ecdsa.h>
-#include <openssl/evp.h>
-#include <openssl/bn.h>
+#include <openssl_1_0_2/ec.h>
+#include <openssl_1_0_2/ecdsa.h>
+#include <openssl_1_0_2/evp.h>
+#include <openssl_1_0_2/bn.h>
 
 
 @implementation BTCBlindSignature {

@@ -3,8 +3,8 @@
 #import "BTCData.h"
 #import <CommonCrypto/CommonCrypto.h>
 #if BTCDataRequiresOpenSSL
-#include <openssl/ripemd.h>
-#include <openssl/evp.h>
+#include <openssl_1_0_2/ripemd.h>
+#include <openssl_1_0_2/evp.h>
 #endif
 
 static const unsigned char _BTCZeroString256[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};

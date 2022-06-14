@@ -2,7 +2,7 @@
 
 #import "BTCBase58.h"
 #import "BTCData.h"
-#import <openssl/bn.h>
+#import <openssl_1_0_2/bn.h>
 
 static const char* BTCBase58Alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 

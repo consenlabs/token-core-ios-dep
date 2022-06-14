@@ -4,9 +4,9 @@
 #import "BTCKey.h"
 #import "BTCData.h"
 #import "BTCBigNumber.h"
-#include <openssl/bn.h>
-#include <openssl/ecdsa.h>
-#include <openssl/evp.h>
+#include <openssl_1_0_2/bn.h>
+#include <openssl_1_0_2/ecdsa.h>
+#include <openssl_1_0_2/evp.h>
 
 @implementation BTCCurvePoint {
     EC_GROUP* _group;

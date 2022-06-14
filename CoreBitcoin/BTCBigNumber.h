@@ -1,7 +1,7 @@
 // CoreBitcoin by Oleg Andreev <oleganza@gmail.com>, WTFPL.
 
 #import <Foundation/Foundation.h>
-#import <openssl/bn.h>
+#import <openssl_1_0_2/bn.h>
 
 // Bitcoin-flavoured big number wrapping OpenSSL BIGNUM.
 // It is doing byte ordering like bitcoind does to stay compatible.

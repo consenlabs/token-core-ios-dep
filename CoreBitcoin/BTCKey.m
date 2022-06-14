@@ -10,12 +10,12 @@
 #import "BTCScript.h"
 #import "BTCOpcode.h"
 #include <CommonCrypto/CommonCrypto.h>
-#include <openssl/ec.h>
-#include <openssl/ecdsa.h>
-#include <openssl/evp.h>
-#include <openssl/obj_mac.h>
-#include <openssl/bn.h>
-#include <openssl/rand.h>
+#include <openssl_1_0_2/ec.h>
+#include <openssl_1_0_2/ecdsa.h>
+#include <openssl_1_0_2/evp.h>
+#include <openssl_1_0_2/obj_mac.h>
+#include <openssl_1_0_2/bn.h>
+#include <openssl_1_0_2/rand.h>
 
 #define CHECK_IF_CLEARED if (_cleared) { [[NSException exceptionWithName:@"BTCKey: instance was already cleared." reason:@"" userInfo:nil] raise]; }
 
