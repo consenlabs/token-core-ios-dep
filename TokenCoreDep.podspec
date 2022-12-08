@@ -42,4 +42,5 @@ Pod::Spec.new do |s|
     ss.osx.framework = 'AppKit'
     ss.dependency "TokenCoreDep/EmbededOpenSSL"
   end
+  s.static_framework = true
 end
